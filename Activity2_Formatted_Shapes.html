@@ -17,7 +17,7 @@
             --deep-red: #8b0000;
             --pine-green: #0d4f2b;
             --page-width: 380px;
-            --page-height: 520px;
+            --page-height: 570px;
         }
         
         html, body {
@@ -292,6 +292,7 @@
             border-radius: 12px;
             padding: 18px 22px;
             margin-top: auto;
+            margin-bottom: 35px;
             position: relative;
             overflow: visible;
             flex-shrink: 0;
@@ -317,7 +318,7 @@
 
         .page-number {
             position: absolute;
-            bottom: 18px;
+            bottom: 12px;
             font-family: 'Cormorant Garamond', serif;
             font-size: 13px;
             color: #8b7355;
@@ -333,8 +334,8 @@
         }
         .holly-corner.tl { top: 12px; left: 18px; }
         .holly-corner.tr { top: 12px; right: 18px; transform: scaleX(-1); }
-        .holly-corner.bl { bottom: 40px; left: 18px; }
-        .holly-corner.br { bottom: 40px; right: 18px; transform: scaleX(-1); }
+        .holly-corner.bl { bottom: 12px; left: 18px; }
+        .holly-corner.br { bottom: 12px; right: 18px; transform: scaleX(-1); }
 
         .page-divider {
             width: 140px;
@@ -877,7 +878,7 @@
         @media (max-width: 850px) {
             :root {
                 --page-width: 300px;
-                --page-height: 440px;
+                --page-height: 490px;
             }
             
             .cover-title h1 { font-size: 36px; }
@@ -905,7 +906,7 @@
         @media (max-width: 650px) {
             :root {
                 --page-width: 170px;
-                --page-height: 260px;
+                --page-height: 300px;
             }
             
             .page-content { padding: 18px 14px; }
@@ -921,7 +922,7 @@
             .page-header .chapter { font-size: 10px; }
             .verse { font-size: 9px; line-height: 1.5; }
             .page-divider { width: 70px; margin: 6px auto; }
-            .shape-showcase { min-height: 85px; }
+            .shape-showcase { min-height: 65px; }
             
             .gift-box { width: 60px; height: 46px; }
             .gift-box::before { width: 12px; }
@@ -940,7 +941,7 @@
             .orn-shine { width: 14px; height: 20px; top: 8px; left: 12px; }
             .orn-pattern { font-size: 26px; }
             
-            .christmas-tree { width: 75px; height: 100px; }
+            .christmas-tree { width: 75px; height: 100px; transform: scale(0.5); transform-origin: top center; }
             .tree-star { font-size: 17px; }
             .tree-tier.t1 { top: 15px; border-width: 0 22px 32px 22px; }
             .tree-tier.t2 { top: 32px; border-width: 0 30px 38px 30px; }
@@ -978,13 +979,13 @@
             .beard-curl:nth-child(3) { left: 24px; }
             .beard-curl:nth-child(4) { left: 35px; }
             
-            .heart-display { width: 60px; height: 75px; }
+            .heart-display { width: 60px; height: 75px; transform: scale(0.6); transform-origin: top center; }
             .heart-svg-container { width: 55px; height: 55px; margin-top: 10px; }
             .heart-svg-main { width: 55px; height: 55px; }
             .heart-ribbon { font-size: 15px; top: -2px; }
             .heart-glow { top: 16px; left: 17px; width: 12px; height: 16px; }
             
-            .message-box { padding: 10px 12px; border-radius: 8px; }
+            .message-box { padding: 10px 12px; border-radius: 8px; margin-bottom: 22px; }
             .message-box::before { font-size: 18px; top: -7px; left: 10px; }
             .message-box p { font-size: 8px; line-height: 1.4; }
             
@@ -994,8 +995,8 @@
             .footer-credit { font-size: 8px; margin-top: 15px; }
             
             .holly-corner { font-size: 12px; }
-            .holly-corner.bl, .holly-corner.br { bottom: 26px; }
-            .page-number { font-size: 9px; bottom: 10px; }
+            .holly-corner.bl, .holly-corner.br { bottom: 8px; }
+            .page-number { font-size: 9px; bottom: 6px; }
             .page-number.left { left: 14px; }
             .page-number.right { right: 14px; }
             
