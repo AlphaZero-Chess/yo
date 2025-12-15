@@ -141,13 +141,15 @@
         }
 
         /* ==================== Z-INDEX STACKING ==================== */
-        #page0 { z-index: 7; }
-        #page1 { z-index: 6; }
-        #page2 { z-index: 5; }
-        #page3 { z-index: 4; }
-        #page4 { z-index: 3; }
-        #page5 { z-index: 2; }
-        #page6 { z-index: 1; }
+        /* Initial z-index - will be dynamically managed by JS */
+        .page { z-index: 1; }
+        #page0 { z-index: 4; }
+        #page1 { z-index: 3; }
+        #page2 { z-index: 2; }
+        #page3 { z-index: 1; }
+        
+        /* When flipped, pages go behind */
+        .page.flipped { z-index: 0 !important; }
 
         /* ==================== COVER STYLES ==================== */
         .cover-front {
@@ -291,6 +293,8 @@
             padding: 18px 22px;
             margin-top: auto;
             position: relative;
+            overflow: visible;
+            flex-shrink: 0;
         }
 
         .message-box::before {
@@ -1340,6 +1344,20 @@
         let currentPage = 0;
         let isAnimating = false;
 
+        function updateZIndex() {
+            // Reset all z-indexes based on current flip state
+            for (let i = 0; i < totalPages; i++) {
+                const page = document.getElementById('page' + i);
+                if (page.classList.contains('flipped')) {
+                    // Flipped pages: most recently flipped has highest z-index among flipped pages
+                    page.style.zIndex = i + 1;
+                } else {
+                    // Unflipped pages: first unflipped has highest z-index
+                    page.style.zIndex = totalPages - i + 10;
+                }
+            }
+        }
+
         function flipPage(pageIndex, flip) {
             const page = document.getElementById('page' + pageIndex);
             if (flip) {
@@ -1347,6 +1365,8 @@
             } else {
                 page.classList.remove('flipped');
             }
+            // Update z-index after a short delay to allow transition to start
+            setTimeout(updateZIndex, 50);
         }
 
         function nextPage() {
@@ -1368,6 +1388,9 @@
             
             setTimeout(() => { isAnimating = false; }, 900);
         }
+
+        // Initialize z-index on load
+        updateZIndex();
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
